@@ -1,9 +1,16 @@
-# Back API
+# GalerieJawadScript
+![Version](https://img.shields.io/badge/version-0.1-blue.svg?cacheSeconds=2592000)
+
+> Simple & easy to use Image gallery, made with Golang and Elm
 
 ## Install
 
-`go get -u github.com/gin-gonic/gin`
-
 ## Usage
 
-`go run main.go`
+## Author
+
+👤 **Agostin Jean-baptiste**
+<br/>
+👤 **Cofis Jacques**
+<br/>
+👤 **Dufour Fakhouri Corto**
