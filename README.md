@@ -1,2 +1,10 @@
-# GalerieJawadScript
-Avec la collaboration de Jacques COFIS et moi
+# Back API
+
+## Install
+
+`go get -u github.com/gin-gonic/gin`
+
+## Usage
+
+`go run main.go`
+
