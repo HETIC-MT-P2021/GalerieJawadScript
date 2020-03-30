@@ -1,2 +1,10 @@
 # GalerieJawadScript
-Avec la collaboration de Jacques COFIS et moi
+
+
+## Author
+
+👤 **Agostin Jean-baptiste**
+<br/>
+👤 **Cofis Jacques**
+<br/>
+👤 **Dufour Fakhouri Corto**
