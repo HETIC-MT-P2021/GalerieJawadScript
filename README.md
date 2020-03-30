@@ -15,4 +15,4 @@
 <br/>
 👤 **Cofis Jacques**
 <br/>
-👤 **Dufour Fakhouri Corto aka Moi**
+👤 **Dufour Fakhouri Corto**
