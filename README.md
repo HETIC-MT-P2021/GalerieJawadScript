@@ -1,2 +1,2 @@
 # GalerieJawadScript
-Avec la collaboration de Jacques COFIS
+Avec la collaboration de Jacques COFIS et moi
