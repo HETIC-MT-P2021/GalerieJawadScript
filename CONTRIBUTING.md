@@ -40,5 +40,5 @@ If you want to contribute there are a few guidelines to follow so that we are ab
     Bug fixes or features that lack appropriate tests may not be considered for merge.
 
 ## Additional Resources
-
-    [General GitHub documentation](https://help.github.com/en)
+    
+[General GitHub documentation](https://help.github.com/en)
