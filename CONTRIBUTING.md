@@ -17,13 +17,18 @@ If you want to contribute there are a few guidelines to follow so that we are ab
 
 ## Making Changes
 
-    Create a topic branch off of the Front or Back branches before you start your work.
+    Create a topic branch off of the Front, Back or Docker branches before you start your work.
         Please avoid working directly on the master branch or any of the Front or Back branches.
 
-    Commits must respect the following code:
+    Branches name must respect the following convention:
+        front-featurename
+        back-featurename
+        docker-featurename
+
+    Commits must respect the following convention:
         Feature/Commit name 
-        Fix/ Commit name
-        Update/ Commit name
+        Fix/Commit name
+        Update/Commit name
 
     Write meaningful, descriptive commit messages.
 
