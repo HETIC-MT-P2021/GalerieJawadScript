@@ -22,10 +22,20 @@
 
 - [GalerieJawadScript](#GalerieJawadScript)
   - [Summary](#summary)
+  - [Features](#features)
   - [Install](#install)
   - [Usage](#usage)
   - [Author](#author)
   - [License](#license)
+
+## Features
+
+- [ ] Create/Update/Delete of the images
+- [ ] Custom categories
+- [ ] Custom Tag
+- [ ] Search by Tag and Categories
+- [ ] Image gallery
+
 
 ## Install
 
