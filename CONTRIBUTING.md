@@ -3,7 +3,7 @@ Contributing
 
 If you want to contribute there are a few guidelines to follow so that we are able to process requests as efficiently as possible.
 
-## Getting Started
+## How to contribute
 
     Submit the Individual Contributor License Agreement
     Make sure you have a GitHub account
