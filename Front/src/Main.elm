@@ -1,15 +1,14 @@
 module Main exposing (..)
 
--- Press buttons to increment and decrement a counter.
---
--- Read how it works:
---   https://guide.elm-lang.org/architecture/buttons.html
---
-
-
 import Browser
-import Html exposing (Html, button, div, text)
-import Html.Events exposing (onClick)
+import File exposing (File)
+import File.Select as Select
+import Html exposing (..)
+import Html.Attributes exposing (..)
+import Html.Attributes exposing (src)
+import Html.Events exposing (..)
+import Json.Decode as D
+import Task
 
 
 
@@ -17,19 +16,27 @@ import Html.Events exposing (onClick)
 
 
 main =
-  Browser.sandbox { init = init, update = update, view = view }
+  Browser.element
+    { init = init
+    , view = view
+    , update = update
+    , subscriptions = subscriptions
+    }
 
 
 
 -- MODEL
 
 
-type alias Model = Int
+type alias Model =
+  { hover : Bool
+  , previews : List String
+  }
 
 
-init : Model
-init =
-  0
+init : () -> (Model, Cmd Msg)
+init _ =
+  (Model False [], Cmd.none)
 
 
 
@@ -37,18 +44,50 @@ init =
 
 
 type Msg
-  = Increment
-  | Decrement
+  = Pick
+  | DragEnter
+  | DragLeave
+  | GotFiles File (List File)
+  | GotPreviews (List String)
 
 
-update : Msg -> Model -> Model
+update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
   case msg of
-    Increment ->
-      model + 1
+    Pick ->
+      ( model
+      , Select.files ["image/*"] GotFiles
+      )
 
-    Decrement ->
-      model - 1
+    DragEnter ->
+      ( { model | hover = True }
+      , Cmd.none
+      )
+
+    DragLeave ->
+      ( { model | hover = False }
+      , Cmd.none
+      )
+
+    GotFiles file files ->
+      ( { model | hover = False }
+      , Task.perform GotPreviews <| Task.sequence <|
+          List.map File.toUrl (file :: files)
+      )
+
+    GotPreviews urls ->
+      ( { model |  previews = model.previews ++ urls }
+      , Cmd.none
+      )
+
+
+
+-- SUBSCRIPTIONS
+
+
+subscriptions : Model -> Sub Msg
+subscriptions model =
+  Sub.none
 
 
 
@@ -57,8 +96,54 @@ update msg model =
 
 view : Model -> Html Msg
 view model =
-  div []
-    [ button [ onClick Decrement ] [ text "-" ]
-    , div [] [ text (String.fromInt model) ]
-    , button [ onClick Increment ] [ text "+" ]
+  div
+    [ style "width" "480px"
+    , style "margin" "100px auto"
+    , style "padding" "40px"
+    , style "display" "flex"
+    , style "flex-direction" "column"
+    , style "justify-content" "center"
+    , style "align-items" "center"
+    , hijackOn "dragenter" (D.succeed DragEnter)
+    , hijackOn "dragover" (D.succeed DragEnter)
+    , hijackOn "dragleave" (D.succeed DragLeave)
+    , hijackOn "drop" dropDecoder
     ]
+    [ button [ onClick Pick ] [ text "Upload Sauce" ]
+    , div
+        [ style "display" "flex"
+        , style "align-items" "center"
+        , style "height" "60px"
+        , style "padding" "20px"
+        ]
+        (List.map imagePreview model.previews)
+    ]
+
+
+imagePreview : String -> Html msg
+imagePreview url =
+  div
+    [ style "width" "100px"
+    , style "height" "100px"
+    , style "background-image" ("url('" ++ url ++ "')")
+    , style "background-position" "center"
+    , style "background-repeat" "no-repeat"
+    , style "background-size" "contain"
+    ]
+    []
+
+
+dropDecoder : D.Decoder Msg
+dropDecoder =
+  D.at ["dataTransfer","files"] (D.oneOrMore GotFiles File.decoder)
+
+
+hijackOn : String -> D.Decoder msg -> Attribute msg
+hijackOn event decoder =
+  preventDefaultOn event (D.map hijack decoder)
+
+
+hijack : msg -> (msg, Bool)
+hijack msg =
+  (msg, True)
+
