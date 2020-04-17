@@ -3,6 +3,7 @@ package apiv1
 import (
 	"./Category"
 	"./Images"
+	"./Tags"
 	"github.com/gin-gonic/gin"
 )
 
@@ -19,5 +20,6 @@ func ApplyRoutes(r *gin.RouterGroup) {
 		v1.GET("/ping", ping)
 		images.ApplyRoutes(v1)
 		category.ApplyRoutes(v1)
+		tags.ApplyRoutes(v1)
 	}
 }
