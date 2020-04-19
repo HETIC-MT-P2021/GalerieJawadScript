@@ -2,6 +2,14 @@
 
 The following routes are available on our front-end.
 
+## Installation
+To install ELM environment, do in root folde, next command line:
+```bash
+elm make
+```
+
+That permit to build your elm-stuff according to your elm.json.
+
 ## URL
 the project is available at the following url: 
 [no-domain-chosen-yet.fr](https://no-domain-chosen-yet.fr)
