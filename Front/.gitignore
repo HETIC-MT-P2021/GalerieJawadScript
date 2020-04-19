@@ -1,8 +1,8 @@
 ### File compiled and to deploiement
-./index.html
-./dist/*
+index.*
+dist/
 ### File compiled and to deploiement
 
 ### ELM Stuff do not import
-./elm-stuff/*
+elm-stuff/
 ### ELM Stuff do not import
