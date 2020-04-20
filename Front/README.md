@@ -11,6 +11,15 @@ elm make
 ```
 
 That permit to build your elm-stuff according to your elm.json.
+## Test
+
+If you want to create a new testing module, please, create a new folder in `/test` named by module test and devlope all cases.
+
+To deploy test, you must to precise in the `/dist-test` folder and choose explicit name file like: `/dist-test/module-name.html`:
+You can do that with :
+```bash
+elm make test/{{module-name-testing}}/Main.elm --output=dist-test/{{module-name-testing}}.html
+```
 
 ## URL
 the project is available at the following url: 
