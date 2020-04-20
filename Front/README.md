@@ -2,8 +2,10 @@
 
 The following routes are available on our front-end.
 
+## Requirement 
+Require ELM 0.19.1.
 ## Installation
-To install ELM environment, do in root folde, next command line:
+To install ELM dependencies, do in root folder, next command line:
 ```bash
 elm make
 ```

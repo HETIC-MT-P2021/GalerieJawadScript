@@ -1,6 +1,6 @@
 ### File compiled and to deploiement
 index.*
-dist/
+dist*/
 ### File compiled and to deploiement
 
 ### ELM Stuff do not import
