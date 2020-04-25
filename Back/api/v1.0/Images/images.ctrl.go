@@ -1,33 +1,54 @@
 package images
 
 import (
+	"../../../database/models"
+	"../../../lib/common"
 	"fmt"
 	"github.com/gin-gonic/gin"
+	"github.com/google/uuid"
+	"github.com/jinzhu/gorm"
+	"mime/multipart"
 	"net/http"
 	"path/filepath"
 )
 
+type Image = models.Image
+type JSON = common.JSON
 
 
 func create(c *gin.Context) {
 
-	name := c.PostForm("name")
+	db := c.MustGet("db").(*gorm.DB)
 
-	// Source
-	file, err := c.FormFile("images")
-	if err != nil {
-		c.String(http.StatusBadRequest, fmt.Sprintf("get form err: %s", err.Error()))
+	type BindImage struct {
+		Name  string                `form:"name" binding:"required"`
+		Description string                `form:"description" binding:"required"`
+		UuidFile *multipart.FileHeader `form:"images" binding:"required"`
+	}
+
+	var ImageBindings BindImage
+
+	// Bind file
+	if err := c.ShouldBind(&ImageBindings); err != nil {
+		c.String(http.StatusBadRequest, fmt.Sprintf("err: %s", err.Error()))
 		return
 	}
 
-	filename := filepath.Base(file.Filename)
-	fmt.Print(filename)
-	if err := c.SaveUploadedFile(file, filename); err != nil {
+	file := ImageBindings.UuidFile
+
+	var extensions = filepath.Ext(file.Filename)
+	var uuidImage = uuid.New()
+
+	Image := Image{Name: ImageBindings.Name, Description: ImageBindings.Description, UuidFile: uuidImage.String()+extensions}
+
+
+
+	if err := c.SaveUploadedFile(file, "./images/"+uuidImage.String()+extensions); err != nil {
 		c.String(http.StatusBadRequest, fmt.Sprintf("upload file err: %s", err.Error()))
 		return
 	}
 
-	c.String(http.StatusOK, fmt.Sprintf("File %s uploaded successfully with fields name=%s .", file.Filename, name))
-
-	c.JSON(200, "ok")
+	db.NewRecord(Image)
+	db.Create(&Image)
+	c.JSON(200, Image.Serialize())
 }
