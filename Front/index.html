@@ -5413,7 +5413,7 @@ var $author$project$Main$update = F2(
 								$elm$core$List$map,
 								$elm$file$File$toUrl,
 								A2($elm$core$List$cons, file, files)))));
-			default:
+			case 'GotPreviews':
 				var urls = msg.a;
 				return _Utils_Tuple2(
 					_Utils_update(
@@ -5422,6 +5422,14 @@ var $author$project$Main$update = F2(
 							previews: _Utils_ap(model.previews, urls)
 						}),
 					$elm$core$Platform$Cmd$none);
+			default:
+				return _Utils_Tuple2(
+					model,
+					A2(
+						$elm$file$File$Select$files,
+						_List_fromArray(
+							['image/*']),
+						$author$project$Main$GotFiles));
 		}
 	});
 var $author$project$Main$DragEnter = {$: 'DragEnter'};
@@ -5461,6 +5469,222 @@ var $author$project$Main$dropDecoder = A2(
 	_List_fromArray(
 		['dataTransfer', 'files']),
 	A2($elm$json$Json$Decode$oneOrMore, $author$project$Main$GotFiles, $elm$file$File$decoder));
+var $elm$html$Html$a = _VirtualDom_node('a');
+var $elm$html$Html$h1 = _VirtualDom_node('h1');
+var $elm$html$Html$h3 = _VirtualDom_node('h3');
+var $elm$html$Html$li = _VirtualDom_node('li');
+var $elm$html$Html$p = _VirtualDom_node('p');
+var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
+var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
+var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
+var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $elm$html$Html$ul = _VirtualDom_node('ul');
+var $author$project$Footer$footerSauce = A2(
+	$elm$html$Html$div,
+	_List_fromArray(
+		[
+			A2($elm$html$Html$Attributes$style, 'width', '100%'),
+			A2($elm$html$Html$Attributes$style, 'background', '#00121b'),
+			A2($elm$html$Html$Attributes$style, 'display', 'block')
+		]),
+	_List_fromArray(
+		[
+			A2(
+			$elm$html$Html$div,
+			_List_fromArray(
+				[
+					A2($elm$html$Html$Attributes$style, 'width', '95%'),
+					A2($elm$html$Html$Attributes$style, 'margin', 'auto'),
+					A2($elm$html$Html$Attributes$style, 'padding', '30px 10px'),
+					A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+					A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap'),
+					A2($elm$html$Html$Attributes$style, 'box-sizing', 'border-box'),
+					A2($elm$html$Html$Attributes$style, 'justify-content', 'center')
+				]),
+			_List_fromArray(
+				[
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							A2($elm$html$Html$Attributes$style, 'width', '25%'),
+							A2($elm$html$Html$Attributes$style, 'padding', '10px 20px'),
+							A2($elm$html$Html$Attributes$style, 'box-sizing', 'border-box'),
+							A2($elm$html$Html$Attributes$style, 'color', '#fff')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$h1,
+							_List_fromArray(
+								[
+									A2($elm$html$Html$Attributes$style, 'color', '#fff')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('Galerie Jawadscript')
+								])),
+							A2(
+							$elm$html$Html$p,
+							_List_fromArray(
+								[
+									A2($elm$html$Html$Attributes$style, 'font-size', '16px'),
+									A2($elm$html$Html$Attributes$style, 'text-align', 'justify'),
+									A2($elm$html$Html$Attributes$style, 'line-height', '25px'),
+									A2($elm$html$Html$Attributes$style, 'color', '#fff')
+								]),
+							_List_fromArray(
+								[
+									$elm$html$Html$text('An image Galery with a very bad sense of humor')
+								]))
+						])),
+					A2(
+					$elm$html$Html$div,
+					_List_fromArray(
+						[
+							A2($elm$html$Html$Attributes$style, 'width', '25%'),
+							A2($elm$html$Html$Attributes$style, 'padding', '10px 20px'),
+							A2($elm$html$Html$Attributes$style, 'box-sizing', 'border-box'),
+							A2($elm$html$Html$Attributes$style, 'color', '#fff')
+						]),
+					_List_fromArray(
+						[
+							A2(
+							$elm$html$Html$div,
+							_List_fromArray(
+								[
+									A2($elm$html$Html$Attributes$style, 'color', '#fff')
+								]),
+							_List_fromArray(
+								[
+									A2(
+									$elm$html$Html$h3,
+									_List_Nil,
+									_List_fromArray(
+										[
+											$elm$html$Html$text('Quick Links')
+										])),
+									A2(
+									$elm$html$Html$div,
+									_List_fromArray(
+										[
+											A2($elm$html$Html$Attributes$style, 'height', '3px'),
+											A2($elm$html$Html$Attributes$style, 'width', '40px'),
+											A2($elm$html$Html$Attributes$style, 'background', '#ff9800'),
+											A2($elm$html$Html$Attributes$style, 'color', '#ff9800'),
+											A2($elm$html$Html$Attributes$style, 'background-color', '#ff9800'),
+											A2($elm$html$Html$Attributes$style, 'border', '0px')
+										]),
+									_List_Nil),
+									A2(
+									$elm$html$Html$ul,
+									_List_fromArray(
+										[
+											A2($elm$html$Html$Attributes$style, 'list-style', 'none'),
+											A2($elm$html$Html$Attributes$style, 'color', '#fff'),
+											A2($elm$html$Html$Attributes$style, 'font-size', '15px'),
+											A2($elm$html$Html$Attributes$style, 'letter-spacing', '0.5px')
+										]),
+									_List_fromArray(
+										[
+											A2(
+											$elm$html$Html$a,
+											_List_fromArray(
+												[
+													A2($elm$html$Html$Attributes$style, 'text-decoration', 'none'),
+													A2($elm$html$Html$Attributes$style, 'outline', 'none'),
+													A2($elm$html$Html$Attributes$style, 'color', '#fff'),
+													A2($elm$html$Html$Attributes$style, 'transition', '0.3s')
+												]),
+											_List_fromArray(
+												[
+													A2(
+													$elm$html$Html$li,
+													_List_fromArray(
+														[
+															A2($elm$html$Html$Attributes$style, 'margin', '10px 0'),
+															A2($elm$html$Html$Attributes$style, 'height', '25px')
+														]),
+													_List_fromArray(
+														[
+															$elm$html$Html$text('Home')
+														]))
+												])),
+											A2(
+											$elm$html$Html$a,
+											_List_fromArray(
+												[
+													A2($elm$html$Html$Attributes$style, 'text-decoration', 'none'),
+													A2($elm$html$Html$Attributes$style, 'outline', 'none'),
+													A2($elm$html$Html$Attributes$style, 'color', '#fff'),
+													A2($elm$html$Html$Attributes$style, 'transition', '0.3s')
+												]),
+											_List_fromArray(
+												[
+													A2(
+													$elm$html$Html$li,
+													_List_fromArray(
+														[
+															A2($elm$html$Html$Attributes$style, 'margin', '10px 0'),
+															A2($elm$html$Html$Attributes$style, 'height', '25px')
+														]),
+													_List_fromArray(
+														[
+															$elm$html$Html$text('Categories')
+														]))
+												])),
+											A2(
+											$elm$html$Html$a,
+											_List_fromArray(
+												[
+													A2($elm$html$Html$Attributes$style, 'text-decoration', 'none'),
+													A2($elm$html$Html$Attributes$style, 'outline', 'none'),
+													A2($elm$html$Html$Attributes$style, 'color', '#fff'),
+													A2($elm$html$Html$Attributes$style, 'transition', '0.3s')
+												]),
+											_List_fromArray(
+												[
+													A2(
+													$elm$html$Html$li,
+													_List_fromArray(
+														[
+															A2($elm$html$Html$Attributes$style, 'margin', '10px 0'),
+															A2($elm$html$Html$Attributes$style, 'height', '25px')
+														]),
+													_List_fromArray(
+														[
+															$elm$html$Html$text('Galery')
+														]))
+												])),
+											A2(
+											$elm$html$Html$a,
+											_List_fromArray(
+												[
+													A2($elm$html$Html$Attributes$style, 'text-decoration', 'none'),
+													A2($elm$html$Html$Attributes$style, 'outline', 'none'),
+													A2($elm$html$Html$Attributes$style, 'color', '#fff'),
+													A2($elm$html$Html$Attributes$style, 'transition', '0.3s')
+												]),
+											_List_fromArray(
+												[
+													A2(
+													$elm$html$Html$li,
+													_List_fromArray(
+														[
+															A2($elm$html$Html$Attributes$style, 'margin', '10px 0'),
+															A2($elm$html$Html$Attributes$style, 'height', '25px')
+														]),
+													_List_fromArray(
+														[
+															$elm$html$Html$text('Search')
+														]))
+												]))
+										]))
+								]))
+						]))
+				]))
+		]));
+var $author$project$Main$foof = $author$project$Footer$footerSauce;
 var $author$project$Main$hijack = function (msg) {
 	return _Utils_Tuple2(msg, true);
 };
@@ -5482,22 +5706,16 @@ var $author$project$Main$hijackOn = F2(
 			event,
 			A2($elm$json$Json$Decode$map, $author$project$Main$hijack, decoder));
 	});
-var $elm$virtual_dom$VirtualDom$style = _VirtualDom_style;
-var $elm$html$Html$Attributes$style = $elm$virtual_dom$VirtualDom$style;
-var $author$project$Main$imagePreview = function (url) {
-	return A2(
-		$elm$html$Html$div,
-		_List_fromArray(
-			[
-				A2($elm$html$Html$Attributes$style, 'width', '100px'),
-				A2($elm$html$Html$Attributes$style, 'height', '100px'),
-				A2($elm$html$Html$Attributes$style, 'background-image', 'url(\'' + (url + '\')')),
-				A2($elm$html$Html$Attributes$style, 'background-position', 'center'),
-				A2($elm$html$Html$Attributes$style, 'background-repeat', 'no-repeat'),
-				A2($elm$html$Html$Attributes$style, 'background-size', 'contain')
-			]),
-		_List_Nil);
-};
+var $author$project$Main$Modify = {$: 'Modify'};
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $elm$html$Html$Attributes$stringProperty = F2(
+	function (key, string) {
+		return A2(
+			_VirtualDom_property,
+			key,
+			$elm$json$Json$Encode$string(string));
+	});
+var $elm$html$Html$Attributes$class = $elm$html$Html$Attributes$stringProperty('className');
 var $elm$virtual_dom$VirtualDom$Normal = function (a) {
 	return {$: 'Normal', a: a};
 };
@@ -5514,56 +5732,108 @@ var $elm$html$Html$Events$onClick = function (msg) {
 		'click',
 		$elm$json$Json$Decode$succeed(msg));
 };
-var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
-var $elm$html$Html$text = $elm$virtual_dom$VirtualDom$text;
+var $author$project$Main$imagePreview = function (url) {
+	return A2(
+		$elm$html$Html$div,
+		_List_Nil,
+		_List_fromArray(
+			[
+				A2(
+				$elm$html$Html$div,
+				_List_fromArray(
+					[
+						$elm$html$Html$Attributes$class('category'),
+						A2($elm$html$Html$Attributes$style, 'width', '100px'),
+						A2($elm$html$Html$Attributes$style, 'height', '100px'),
+						A2($elm$html$Html$Attributes$style, 'background-image', 'url(\'' + (url + '\')')),
+						A2($elm$html$Html$Attributes$style, 'background-position', 'center'),
+						A2($elm$html$Html$Attributes$style, 'background-repeat', 'no-repeat'),
+						A2($elm$html$Html$Attributes$style, 'background-size', 'contain'),
+						A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+						A2($elm$html$Html$Attributes$style, 'flex-direction', 'column'),
+						A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
+						A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
+						A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap'),
+						A2($elm$html$Html$Attributes$style, 'margin', '20px')
+					]),
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$button,
+						_List_fromArray(
+							[
+								$elm$html$Html$Events$onClick($author$project$Main$Modify),
+								A2($elm$html$Html$Attributes$style, 'margin-top', '110px')
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Modify Image')
+							]))
+					]))
+			]));
+};
 var $author$project$Main$view = function (model) {
 	return A2(
 		$elm$html$Html$div,
 		_List_fromArray(
 			[
-				A2($elm$html$Html$Attributes$style, 'width', '480px'),
-				A2($elm$html$Html$Attributes$style, 'margin', '100px auto'),
-				A2($elm$html$Html$Attributes$style, 'padding', '40px'),
-				A2($elm$html$Html$Attributes$style, 'display', 'flex'),
-				A2($elm$html$Html$Attributes$style, 'flex-direction', 'column'),
-				A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
-				A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
-				A2(
-				$author$project$Main$hijackOn,
-				'dragenter',
-				$elm$json$Json$Decode$succeed($author$project$Main$DragEnter)),
-				A2(
-				$author$project$Main$hijackOn,
-				'dragover',
-				$elm$json$Json$Decode$succeed($author$project$Main$DragEnter)),
-				A2(
-				$author$project$Main$hijackOn,
-				'dragleave',
-				$elm$json$Json$Decode$succeed($author$project$Main$DragLeave)),
-				A2($author$project$Main$hijackOn, 'drop', $author$project$Main$dropDecoder)
+				A2($elm$html$Html$Attributes$style, 'background', '#010a11'),
+				A2($elm$html$Html$Attributes$style, 'width', '100%'),
+				A2($elm$html$Html$Attributes$style, 'height', '100%'),
+				A2($elm$html$Html$Attributes$style, 'overflow', 'hidden')
 			]),
 		_List_fromArray(
 			[
 				A2(
-				$elm$html$Html$button,
-				_List_fromArray(
-					[
-						$elm$html$Html$Events$onClick($author$project$Main$Pick)
-					]),
-				_List_fromArray(
-					[
-						$elm$html$Html$text('Upload Sauce')
-					])),
-				A2(
 				$elm$html$Html$div,
 				_List_fromArray(
 					[
+						A2($elm$html$Html$Attributes$style, 'width', '80%'),
+						A2($elm$html$Html$Attributes$style, 'margin', '100px auto'),
+						A2($elm$html$Html$Attributes$style, 'padding', '40px'),
 						A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+						A2($elm$html$Html$Attributes$style, 'flex-direction', 'column'),
+						A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
 						A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
-						A2($elm$html$Html$Attributes$style, 'height', '60px'),
-						A2($elm$html$Html$Attributes$style, 'padding', '20px')
+						A2(
+						$author$project$Main$hijackOn,
+						'dragenter',
+						$elm$json$Json$Decode$succeed($author$project$Main$DragEnter)),
+						A2(
+						$author$project$Main$hijackOn,
+						'dragover',
+						$elm$json$Json$Decode$succeed($author$project$Main$DragEnter)),
+						A2(
+						$author$project$Main$hijackOn,
+						'dragleave',
+						$elm$json$Json$Decode$succeed($author$project$Main$DragLeave)),
+						A2($author$project$Main$hijackOn, 'drop', $author$project$Main$dropDecoder)
 					]),
-				A2($elm$core$List$map, $author$project$Main$imagePreview, model.previews))
+				_List_fromArray(
+					[
+						A2(
+						$elm$html$Html$button,
+						_List_fromArray(
+							[
+								$elm$html$Html$Events$onClick($author$project$Main$Pick)
+							]),
+						_List_fromArray(
+							[
+								$elm$html$Html$text('Upload New Image')
+							])),
+						A2(
+						$elm$html$Html$div,
+						_List_fromArray(
+							[
+								A2($elm$html$Html$Attributes$style, 'padding', '40px'),
+								A2($elm$html$Html$Attributes$style, 'display', 'flex'),
+								A2($elm$html$Html$Attributes$style, 'justify-content', 'center'),
+								A2($elm$html$Html$Attributes$style, 'align-items', 'center'),
+								A2($elm$html$Html$Attributes$style, 'flex-wrap', 'wrap')
+							]),
+						A2($elm$core$List$map, $author$project$Main$imagePreview, model.previews))
+					])),
+				$author$project$Main$foof
 			]));
 };
 var $author$project$Main$main = $elm$browser$Browser$element(
