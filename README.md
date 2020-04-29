@@ -51,3 +51,9 @@
 ## License
 
 All the content is under [MIT license](https://github.com/HETIC-MT-P2021/aio-group4-proj01/blob/master/LICENCE).
+=======
+## Usage
+
+`docker-compose up`
+
+Go to `localhost:8000/api/v1.0/ping`
