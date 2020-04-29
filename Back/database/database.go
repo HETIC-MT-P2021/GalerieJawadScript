@@ -17,7 +17,7 @@ func Initialize() (*gorm.DB, error) {
 	database := os.Getenv("MYSQL_DATABASE")
 	host := os.Getenv("DB_HOST")
 
-	dsn := user + ":" + pwd + "@" + host + "/" + database + "?parseTime=true&charset=utf8"
+	dsn := user + ":" + pwd + "@tcp("+ host +")/" + database + "?parseTime=true&charset=utf8"
 
 	var err error
 
