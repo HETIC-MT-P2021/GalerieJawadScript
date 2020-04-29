@@ -1,18 +1,18 @@
 package models
 
 import (
-	"../../lib/common"
 	"fmt"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/lib/common"
 	"github.com/jinzhu/gorm"
 )
 
 type Image struct {
 	gorm.Model
-	Name     string
-	Description   string `sql:"type:text;"`
-	Category Category
-	Tags []Tags
-	UuidFile string
+	Name        string
+	Description string `sql:"type:text;"`
+	Category    Category
+	Tags        []Tags
+	UuidFile    string
 }
 
 func (i Image) Serialize() common.JSON {

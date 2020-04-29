@@ -1,9 +1,9 @@
-package images
+package Images
 
 import (
-	"../../../database/models"
-	"../../../lib/common"
 	"fmt"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/database/models"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/lib/common"
 	"github.com/gin-gonic/gin"
 	"github.com/google/uuid"
 	"github.com/jinzhu/gorm"

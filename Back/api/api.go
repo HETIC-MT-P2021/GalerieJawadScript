@@ -1,7 +1,7 @@
 package api
 
 import (
-	"./v1.0"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/api/v1.0"
 	"github.com/gin-gonic/gin"
 )
 

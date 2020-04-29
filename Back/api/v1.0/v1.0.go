@@ -1,9 +1,9 @@
 package apiv1
 
 import (
-	"./Category"
-	"./Images"
-	"./Tags"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/api/v1.0/Category"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/api/v1.0/Images"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/api/v1.0/Tags"
 	"github.com/gin-gonic/gin"
 )
 
@@ -18,7 +18,7 @@ func ApplyRoutes(r *gin.RouterGroup) {
 	v1 := r.Group("/v1.0")
 	{
 		v1.GET("/ping", ping)
-		images.ApplyRoutes(v1)
+		Images.ApplyRoutes(v1)
 		category.ApplyRoutes(v1)
 		tags.ApplyRoutes(v1)
 	}

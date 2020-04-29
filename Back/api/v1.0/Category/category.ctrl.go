@@ -1,8 +1,8 @@
 package category
 
 import (
-	"../../../database/models"
-	"../../../lib/common"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/database/models"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/lib/common"
 	"github.com/gin-gonic/gin"
 	"github.com/jinzhu/gorm"
 )

@@ -2,22 +2,37 @@ package database
 
 import (
 	"fmt"
-	"os"
-
-	"./models"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/database/models"
 	"github.com/jinzhu/gorm"
-	_ "github.com/jinzhu/gorm/dialects/mysql" // configures mysql driver
+	_ "github.com/jinzhu/gorm/dialects/mysql"
+	"os"
+	"time"
 )
 
 // Initialize initializes the database
 func Initialize() (*gorm.DB, error) {
-	dbConfig := os.Getenv("DB_CONFIG")
-	db, err := gorm.Open("mysql", dbConfig)
-	db.LogMode(true) // logs SQL
-	if err != nil {
-		panic(err)
+
+	user := os.Getenv("MYSQL_USER")
+	pwd := os.Getenv("MYSQL_PASSWORD")
+	database := os.Getenv("MYSQL_DATABASE")
+	host := os.Getenv("DB_HOST")
+
+	dsn := user + ":" + pwd + "@" + host + "/" + database + "?parseTime=true&charset=utf8"
+
+	var err error
+
+	for i:=1; i <= 3; i++ {
+
+		db, err := gorm.Open("mysql", dsn)
+
+		if err == nil {
+			models.Migrate(db)
+			fmt.Println("Connected to database")
+			return db,nil
+		}
+		fmt.Println(err)
+		time.Sleep(10 * time.Second)
 	}
-	fmt.Println("Connected to database")
-	models.Migrate(db)
-	return db, err
+
+	return nil, err
 }

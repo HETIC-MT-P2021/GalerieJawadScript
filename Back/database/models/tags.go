@@ -1,7 +1,7 @@
 package models
 
 import (
-	"../../lib/common"
+	"github.com/HETIC-MT-P2021/aio-group4-proj01/Back/lib/common"
 	"github.com/jinzhu/gorm"
 )
 

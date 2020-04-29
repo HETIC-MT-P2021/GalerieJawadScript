@@ -1,4 +1,4 @@
-package images
+package Images
 
 import (
 	"github.com/gin-gonic/gin"
