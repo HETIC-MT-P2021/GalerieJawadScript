@@ -31,9 +31,9 @@ heeh =
 main =
   Browser.element
     { init = init
-    , view = view
-    , update = update
-    , subscriptions = subscriptions
+      , view = view
+      , update = update
+      , subscriptions = subscriptions
     }
 
 
@@ -64,7 +64,6 @@ type Msg
   | GotPreviews (List String)
   | Modify
   -- | Post
-
 
 update : Msg -> Model -> (Model, Cmd Msg)
 update msg model =
@@ -99,8 +98,6 @@ update msg model =
       ( model
       , Select.files ["image/*"] GotFiles
       )
-
-
 
 -- SUBSCRIPTIONS
 
