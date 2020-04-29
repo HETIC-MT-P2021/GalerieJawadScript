@@ -84,3 +84,7 @@ fabric.properties
 .idea/**/markdown-navigator/
 
 # End of https://www.gitignore.io/api/phpstorm
+
+# Front elm cache and deployment
+Front/elm-stuff
+Front/dist

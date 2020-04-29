@@ -3,11 +3,13 @@
 The API is made with [Goland](https://golang.org/) and a front-end interface also exists to present gallery content. [View more about the front-end.]()
 
 ## Summary
-- [Get Started](#get-started)
-- [API Reference](#api-reference)
-  - [Images](#images)
-  - [Categories](#categories)
-  - [Tags](#tags)
+- [API Documentation](#api-documentation)
+  - [Summary](#summary)
+  - [Get started](#get-started)
+  - [API Reference](#api-reference)
+    - [Images](#images)
+    - [Categories](#categories)
+    - [Tags](#tags)
 
 ## Get started
 
@@ -23,184 +25,74 @@ If you get a 200 status code with a small `.json` response everything should be 
 
 ---
 
-Data Structure:
-Field | Type
--|-
-id              | integer
-name            | string
-description     | string
-category        | string
-uuid_file       | string
-date_created    | timestamp
-date_updated    | timestamp
-tags            | array[string]
+URL | Method | Expected Response | Description
+-|-|-|-
+images/`:id` | `GET` | `200` | Get an image ressource
+images | `GET` | `200` | Get all images ressource
+images | `POST` | `201` | Create an image ressource
+images/`:id` | `PUT` | `201` | Update an image ressource
+images/`:id` | `DELETE` | `200` | Delete an image ressource
+
 
 JSON representation :
 
 ```json
 [
     {
-        "id": 1,
-        "name": "Name of the image",
-        "description": "A little description of the image",
-        "category": "Category name",
-        "uuid_file": "path/uuid_file",
-        "date_created": 123546789,
-        "date_updated": 123456789,
+        "id": 1, // integer
+        "name": "Name of the image", // string
+        "description": "A little description of the image", // string
+        "category": "Category name", // string
+        "uuid_file": "path/uuid_file", // string
+        "date_created": 123546789, //datetime
+        "date_updated": 123456789, //datetime
         "tags":[
             "restaurant",
             "museum"
-        ]
+        ] // array of string
     }
 ]
 ```
-
-* Get all images
-
-Subject | Information
--|-
-URL                 | api/images
-Method              | `GET`
-Status Expected     | `200`
-
-* Get one image
-
-Subject | Information
--|-
-URL                 | `api/images/:id`
-Method              | `GET`
-Status Expected     | `200`
-
-* Create an image
-
-Subject | Information
--|-
-URL                 | `api/images`
-Method              | `POST`
-Status Expected     | `201`
-
-Input parameter:
-
-Field | Details | required
--|-|-
-name            | string        | [x]
-description     | string        | [x]
-category        | string        | [x]
-uuid_file       | string        | [x]
-tags            | array[string] | []
-
-* Delete image
-
-Subject | Information
--|-
-URL                 | `api/images/:id`
-Method              | `DELETE`
-Status Expected     | `200`
-
-* Update image
-
-Subject | Information
--|-
-URL                 | `api/images/:id`
-Method              | `PUT`
-Status Expected     | `200, 201, 204`
-
-Input parameter:
-
-Field | Type | required
--|-|-
-name            | string        | [x]
-description     | string        | [x]
-category        | string        | [x]
-uuid_file       | string        | [x]
-tags            | array[string] | []
 
 ### Categories
 
 ---
 
-Data Structure:
-Field | Type
--|-
-id              | integer
-name            | string
-date_created    | timestamp
+URL | Method | Expected Response | Description
+-|-|-|-
+categories/`:id` | `GET` | `200` | Get an category ressource
+categories | `GET` | `200` | Get all categories ressource
+categories | `POST` | `201` | Create an category ressource
+categories/`:id` | `PUT` | `201` | Update an category ressource
+categories/`:id` | `DELETE` | `200` | Delete an category ressource
+
 
 JSON representation :
 
 ```json
 [
     {
-        "id": 1,
-        "name": "Category Name",
-        "date_created": 123546789
+        "id": 1, // integer
+        "name": "Category Name", // string
+        "date_created": 123546789 // datetime
     }
 ]
 ```
-
-* Get all categories
-
-Subject | Information
--|-
-URL                 | `api/categories`
-Method              | `GET`
-Status Expected     | `200`
-
-* Get one category
-
-Subject | Information
--|-
-URL                 | `api/categories/:id`
-Method              | `GET`
-Status Expected     | `200`
-
-* Create an category
-
-Subject | Information
--|-
-URL                 | `api/categories`
-Method              | `POST`
-Status Expected     | `201`
-
-Input parameter:
-
-Field | Details | required
--|-|-
-name            | string        | [x]
-
-* Delete category
-
-Subject | Information
--|-
-URL                 | `api/categories/:id`
-Method              | `DELETE`
-Status Expected     | `200`
-
-* Update category
-
-Subject | Information
--|-
-URL                 | `api/categories/:id`
-Method              | `PUT`
-Status Expected     | `200, 201, 204`
-
-Input parameter:
-
-Field | Details | required
--|-|-
-name            | string        | [x]
 
 ### Tags
 
 ---
 
 
-Data Structure:
-Field | Type
--|-
-id              | integer
-name            | string
-date_created    | timestamp
+
+URL | Method | Expected Response | Description
+-|-|-|-
+tags/`:id` | `GET` | `200` | Get an tag ressource
+tags | `GET` | `200` | Get all tags ressource
+tags | `POST` | `201` | Create an tag ressource
+tags/`:id` | `PUT` | `201` | Update an tag ressource
+tags/`:id` | `DELETE` | `200` | Delete an tag ressource
+
 
 JSON representation :
 
@@ -213,55 +105,3 @@ JSON representation :
     }
 ]
 ```
-
-* Get all tags
-
-Subject | Information
--|-
-URL                 | `api/tags`
-Method              | `GET`
-Status Expected     | `200`
-
-* Get one tag
-
-Subject | Information
--|-
-URL                 | `api/tags/:id`
-Method              | `GET`
-Status Expected     | `200`
-
-#### Create an tag
-
-Subject | Information
--|-
-URL                 | `api/tags`
-Method              | `POST`
-Status Expected     | `201`
-
-Input parameter:
-
-Field | Details | required
--|-|-
-name            | string        | [x]
-
-* Delete tag
-
-Subject | Information
--|-
-URL                 | `api/tags/:id`
-Method              | `DELETE`
-Status Expected     | `200`
-
-* Update tag
-
-Subject | Information
--|-
-URL                 | `api/tags/:id`
-Method              | `PUT`
-Status Expected     | `200, 201, 204`
-
-Input parameter:
-
-Field | Details | required
--|-|-
-name            | string        | [x]
