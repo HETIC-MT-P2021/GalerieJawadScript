@@ -1,13 +1,10 @@
 module Footer exposing (..)
 
 import Browser
-import File exposing (File)
-import File.Select as Select
 import Html exposing (..)
 import Html.Attributes exposing (..)
 import Html.Attributes exposing (src)
 import Html.Events exposing (..)
-import Json.Decode as D
 
 
 init = 

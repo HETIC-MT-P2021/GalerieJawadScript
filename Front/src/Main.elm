@@ -14,7 +14,7 @@ import File
 import Http
 import Json.Decode exposing (list, string)
 
-
+import Header
 import Footer
 
 
@@ -23,6 +23,9 @@ import Footer
 
 foof = 
   Footer.footerSauce
+
+heeh = 
+  Header.headerSauce
 
 
 main =
@@ -120,7 +123,8 @@ view model =
   , style "overflow" "hidden"
   ]
   [
-    div
+    heeh
+    ,div
       [ style "width" "80%"
       , style "margin" "100px auto"
       , style "padding" "40px"
