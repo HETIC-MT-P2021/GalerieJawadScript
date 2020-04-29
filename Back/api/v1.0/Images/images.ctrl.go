@@ -43,7 +43,7 @@ func create(c *gin.Context) {
 
 
 
-	if err := c.SaveUploadedFile(file, "./images/"+uuidImage.String()+extensions); err != nil {
+	if err := c.SaveUploadedFile(file, "./uploads/"+uuidImage.String()+extensions); err != nil {
 		c.String(http.StatusBadRequest, fmt.Sprintf("upload file err: %s", err.Error()))
 		return
 	}

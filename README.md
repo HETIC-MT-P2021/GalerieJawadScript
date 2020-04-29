@@ -1,9 +1,7 @@
 # Back API
 
-## Install
-
-`go get -u github.com/gin-gonic/gin`
-
 ## Usage
 
-`go run main.go`
+`docker-compose up`
+
+Go to `localhost:8000/api/v1.0/ping`
